@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.EventHandler;
@@ -28,7 +29,7 @@ import javafx.stage.Stage;
  *
  * @author Almas Baimagambetov
  */
-public class BlackjackApp extends Application {
+public class BlackjackApp extends Application implements Runnable{
 
     private Deck deck = new Deck();
     private Hand dealer, player;
@@ -199,8 +200,9 @@ public class BlackjackApp extends Application {
         message.setText(winner + " WON");
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+
+    public void Game(){
+        Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.setWidth(600);
         primaryStage.setHeight(800);
@@ -211,5 +213,24 @@ public class BlackjackApp extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @Override
+    public void run() {
+        Platform.runLater(new Runnable() {
+            public void run() {
+                try {
+                    Game();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
     }
 }
