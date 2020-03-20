@@ -1,36 +1,30 @@
 package sample;
 
-import sample.Card.Rank;
-import sample.Card.Suit;
-
 /**
  * Standard 52 card deck
  *
- * @author Almas
+ * 
  */
 public class Deck {
 
-    private Card[] cards = new Card[52];
+    private Card[] cards = new Card[52];//Holds all cards
 
     public Deck() {
         refill();
     }
-
+	
     public final void refill() {
-        int i = 0;
-        for (Suit suit : Suit.values()) {
-            for (Rank rank : Rank.values()) {
-                cards[i++] = new Card(suit, rank);
-            }
+        for (int i=1;i<=52;i++) {
+          cards[i-1] = new Card(i);//Stores all cards inside an array
         }
     }
 
     public Card drawCard() {
         Card card = null;
         while (card == null) {
-            int index = (int)(Math.random()*cards.length);
+            int index = (int)(Math.random()*cards.length);//Calls random card
             card = cards[index];
-            cards[index] = null;
+            cards[index] = null;//When a card is in play, it is removed from the draw pile, becoming null
         }
         return card;
     }

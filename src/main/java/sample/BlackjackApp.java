@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.EventHandler;
@@ -22,13 +23,13 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
 /**
  * Game's logic and UI
  *
- * @author Almas Baimagambetov
  */
-public class BlackjackApp extends Application {
+public class BlackjackApp extends Application implements Runnable{
 
     private Deck deck = new Deck();
     private Hand dealer, player;
@@ -64,9 +65,9 @@ public class BlackjackApp extends Application {
         VBox leftVBox = new VBox(50);
         leftVBox.setAlignment(Pos.TOP_CENTER);
 
-        Text dealerScore = new Text("Dealer: ");
+        Text dealerScore = new Text("Dealer: " + dealer.getValue());
         dealerScore.setFill(Color.WHITE);
-        Text playerScore = new Text("Player: ");
+        Text playerScore = new Text("Player: " + player.getValue());
         playerScore.setFill(Color.WHITE);
 
         leftVBox.getChildren().addAll(dealerScore, dealerCards, message, playerCards, playerScore);
@@ -76,7 +77,7 @@ public class BlackjackApp extends Application {
         VBox rightVBox = new VBox(2);
         rightVBox.setAlignment(Pos.CENTER);
 
-        final TextField bet = new TextField("BET");
+        TextField bet = new TextField("BET");
         bet.setDisable(true);
         bet.setMaxWidth(50);
         Text money = new Text("MONEY");
@@ -117,20 +118,6 @@ public class BlackjackApp extends Application {
         imageHit.disableProperty().bind(playable.not());
         imageStand.disableProperty().bind(playable.not());
 
-        playerScore.textProperty().bind(new SimpleStringProperty("Player: ").concat(player.valueProperty().asString()));
-        dealerScore.textProperty().bind(new SimpleStringProperty("Dealer: ").concat(dealer.valueProperty().asString()));
-
-        player.valueProperty().addListener((obs, old, newValue) -> {
-            if (newValue.intValue() >= 21) {
-                endGame();
-            }
-        });
-
-        dealer.valueProperty().addListener((obs, old, newValue) -> {
-            if (newValue.intValue() >= 21) {
-                endGame();
-            }
-        });
 
         // INIT BUTTONS
 
@@ -139,6 +126,9 @@ public class BlackjackApp extends Application {
             @Override
             public void handle(MouseEvent event) {
                 startNewGame();
+		//Updates user and dealer scores
+                playerScore.setText("Player: " + player.getValue());
+                dealerScore.setText("Dealer: " + dealer.getValue());
             }
         });
 
@@ -147,6 +137,10 @@ public class BlackjackApp extends Application {
             @Override
             public void handle(MouseEvent event) {
                 player.takeCard(deck.drawCard());
+                playerScore.setText("Player: " + player.getValue());
+                if(player.getValue() >= 21){
+                  endGame();
+                }
             }
         });
 
@@ -154,9 +148,12 @@ public class BlackjackApp extends Application {
 
             @Override
             public void handle(MouseEvent event) {
-                while (dealer.valueProperty().get() < 17) {
+		//Continues till the dealer can no longer draw
+                while (dealer.getValue() < 17) {
                     dealer.takeCard(deck.drawCard());
+                    dealerScore.setText("Dealer: " + dealer.getValue());
                 }
+
 
                 endGame();
             }
@@ -183,8 +180,8 @@ public class BlackjackApp extends Application {
     private void endGame() {
         playable.set(false);
 
-        int dealerValue = dealer.valueProperty().get();
-        int playerValue = player.valueProperty().get();
+        int dealerValue = dealer.getValue();
+        int playerValue = player.getValue();
         String winner = "Exceptional case: d: " + dealerValue + " p: " + playerValue;
 
         // the order of checking is important
@@ -199,8 +196,9 @@ public class BlackjackApp extends Application {
         message.setText(winner + " WON");
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+
+    public void Game(){
+        Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.setWidth(600);
         primaryStage.setHeight(800);
@@ -211,5 +209,24 @@ public class BlackjackApp extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @Override
+    public void run() {
+        Platform.runLater(new Runnable() {
+            public void run() {
+                try {
+                    Game();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
     }
 }
