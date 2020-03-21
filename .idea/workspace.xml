@@ -63,8 +63,12 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1Z0TurpN3H9N4oD0JorEgPoBDty" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -81,9 +85,10 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files (x86)/javafx-sdk-13.0.2/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/sample/BlackjackApp.java" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -183,8 +188,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.BlackjackApp" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
@@ -218,10 +223,11 @@
       <screen x="0" y="0" width="1462" height="864" />
     </state>
     <state x="186" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1462.864@0.0.1462.864" timestamp="1583975950724" />
-    <state x="436" y="175" key="FileChooserDialogImpl" timestamp="1583975267993">
-      <screen x="0" y="0" width="1462" height="864" />
+    <state x="458" y="167" key="FileChooserDialogImpl" timestamp="1584811012102">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="436" y="175" key="FileChooserDialogImpl/0.0.1462.864@0.0.1462.864" timestamp="1583975267993" />
+    <state x="458" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584811012102" />
     <state width="1419" height="223" key="GridCell.Tab.0.bottom" timestamp="1584039309270">
       <screen x="0" y="0" width="1462" height="864" />
     </state>
