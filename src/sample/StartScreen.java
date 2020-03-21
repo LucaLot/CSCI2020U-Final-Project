@@ -36,12 +36,10 @@ public class StartScreen extends Application implements Runnable {
 
         });
     }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
 
     };
-
     public void startS() throws FileNotFoundException {
         Stage primaryStage = new Stage();
         GridPane pane = new GridPane();
@@ -70,7 +68,7 @@ public class StartScreen extends Application implements Runnable {
         });
 
 
-        Image image = new Image("/images/blackjack.jpg");
+        Image image = new Image("/sample/resources/images/blackjack.jpg");
         BackgroundImage backgroundImage = new BackgroundImage(image,BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,new BackgroundSize(450,600,
                 true,true,true,true));
@@ -96,9 +94,5 @@ public class StartScreen extends Application implements Runnable {
         primaryStage.setMinWidth(600);
         primaryStage.setScene(scene);
         primaryStage.show();
-
-
-
-
     }
 }

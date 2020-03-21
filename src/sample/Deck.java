@@ -3,7 +3,7 @@ package sample;
 /**
  * Standard 52 card deck
  *
- * 
+ *
  */
 public class Deck {
 
@@ -12,10 +12,10 @@ public class Deck {
     public Deck() {
         refill();
     }
-	
+
     public final void refill() {
         for (int i=1;i<=52;i++) {
-          cards[i-1] = new Card(i);//Stores all cards inside an array
+            cards[i-1] = new Card(i);//Stores all cards inside an array
         }
     }
 

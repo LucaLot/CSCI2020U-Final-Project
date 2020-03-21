@@ -23,9 +23,9 @@ public class Hand {
 
     public void takeCard(Card card) {
         cards.add(card);
-	//If the card value is an ace
+        //If the card value is an ace
         if (card.getValue() == 1 || card.getValue() == 14
-            || card.getValue() == 27 || card.getValue() == 40) {
+                || card.getValue() == 27 || card.getValue() == 40) {
             aces++;
         }
         value += card.getValue();

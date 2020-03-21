@@ -53,7 +53,6 @@ public class LoadingScreen extends Application implements Runnable {
         });
     }
 
-
     public void startLoad(){
         Stage primaryStage = new Stage();
         TilePane r = new TilePane();
@@ -76,6 +75,5 @@ public class LoadingScreen extends Application implements Runnable {
         Scene loading = new Scene(r,250,50);
         primaryStage.setScene(loading);
         primaryStage.show();
-
     }
 }
