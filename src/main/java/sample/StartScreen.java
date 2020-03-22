@@ -68,7 +68,11 @@ public class StartScreen extends Application implements Runnable {
             game.run();
         });
 
-
+        rules.setOnAction((event) -> {
+            Runnable ruleStart = new Rules();
+            Thread rule = new Thread(ruleStart);
+            rule.run();
+        });
 
 
 

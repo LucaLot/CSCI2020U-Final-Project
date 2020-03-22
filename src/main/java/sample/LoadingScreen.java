@@ -42,7 +42,7 @@ public class LoadingScreen extends Application implements Runnable {
                             Thread start = new Thread(starting);
                             start.run();
                         }
-                    },10000);
+                    },5000);
 
                 } catch (Exception e) {
                     e.printStackTrace();
