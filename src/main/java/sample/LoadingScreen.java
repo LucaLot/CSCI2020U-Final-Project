@@ -41,9 +41,8 @@ public class LoadingScreen extends Application implements Runnable {
                             Runnable starting = new StartScreen();
                             Thread start = new Thread(starting);
                             start.run();
-			//TODO hide loading bar after load is complete
                         }
-                    },1000);
+                    },100);
 
                 } catch (Exception e) {
                     e.printStackTrace();

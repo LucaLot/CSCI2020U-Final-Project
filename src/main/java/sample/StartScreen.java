@@ -40,7 +40,7 @@ public class StartScreen extends Application implements Runnable {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-    };
+    }
 
     public void startS() throws FileNotFoundException {
         Stage primaryStage = new Stage();
@@ -65,10 +65,16 @@ public class StartScreen extends Application implements Runnable {
         start.setOnAction((event) -> {
             Runnable gameStart = new BlackjackApp();
             Thread game = new Thread(gameStart);
-            primaryStage.close(); //Closes screen when main game comes in
+            primaryStage.close();
             game.run();
         });
 
+        rules.setOnAction((event) -> {
+            Runnable ruleStart = new Rules();
+            Thread rule = new Thread(ruleStart);
+            primaryStage.close();
+            rule.run();
+        });
 
         Image image = new Image("/images/blackjack.jpg");
         BackgroundImage backgroundImage = new BackgroundImage(image,BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,
