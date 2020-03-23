@@ -60,8 +60,8 @@ public class Rules extends Application implements Runnable{
         cards.getChildren().addAll(imageJack1, imageJack2);
 
 
-        root.getChildren().addAll(upBG, getRules(), cards, back);
-
+        root.getChildren().addAll(upBG, getRules(), cards);
+        root.add(back,0,1);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Rules");

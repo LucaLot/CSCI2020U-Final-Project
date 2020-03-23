@@ -1,4 +1,9 @@
-//Initial class to run program
+/*
+ * Name: Vithusan Jeevaratnam
+ * Date: March 20th, 2020
+ * FileName: Driver.java
+ * Purpose: Used to begin the program all together
+ */
 package sample;
 
 
@@ -12,6 +17,7 @@ public class Driver extends Application {
     public static void main(String[] args) {
         System.out.println("System Succesfully started");
 
+        // CREATES THE THREAD WHICH TRIGGERS THE WHOLE GAME ALL TOGETHER
         Runnable loading = new LoadingScreen();
         Thread load = new Thread(loading);
         load.run();

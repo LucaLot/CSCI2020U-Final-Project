@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/Bet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/Bet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/BetServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/BetServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/BlackjackApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/Hand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/LoadingScreen$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/LoadingScreen$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/LoadingScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/LoadingScreen$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/LoadingScreen$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/LoadingScreen$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/LoadingScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/LoadingScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/Rules$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/Rules$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/Rules.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/Rules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/StartScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/StartScreen$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sample/StartScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sample/StartScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/BlackJack.tar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/BlackJack.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/Final Project.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/Final Project.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/Final Project.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/Final Project.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/BlackJack.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Final Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Final Project.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/CSCI2020U-Final-Project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/CSCI2020U-Final-Project.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/BlackjackApp$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/BlackjackApp$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/BlackjackApp$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/BlackjackApp$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/BlackjackApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/Card$Rank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/Card$Suit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/Card.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/Deck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/Driver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/Hand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/LoadingScreen$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/LoadingScreen$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/LoadingScreen$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/LoadingScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/StartScreen$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/sample/StartScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/LoadingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/StartScreen.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,8 +118,12 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1Z0TurpN3H9N4oD0JorEgPoBDty" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -81,6 +140,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files (x86)/javafx-sdk-13.0.2/lib" />
