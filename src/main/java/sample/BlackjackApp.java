@@ -31,11 +31,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 
-/**
- * Game's logic and UI
- *
- * @author Almas Baimagambetov
- */
+
 public class BlackjackApp extends Application implements Runnable{
 
     private Deck deck = new Deck();
