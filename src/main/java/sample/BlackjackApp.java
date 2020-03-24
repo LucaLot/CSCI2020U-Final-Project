@@ -4,15 +4,15 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -31,16 +31,17 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 
-
 public class BlackjackApp extends Application implements Runnable{
 
     private Deck deck = new Deck();
+    private BetServer server = new BetServer();
     private Socket connectToServer;
     private DataInputStream fromServer;
     private DataOutputStream toServer;
     private Hand dealer, player;
-    private Bet bet = new Bet();
+    private Stage primaryStage = new Stage();
     private Text message = new Text();
+    private Button exitButton = new Button("EXIT");
 
     private SimpleBooleanProperty playable = new SimpleBooleanProperty(false);
 
@@ -96,14 +97,10 @@ public class BlackjackApp extends Application implements Runnable{
         betMoney.setMaxWidth(50);
         Label betLabel = new Label("BET");
         betLabel.setTextFill(Color.WHITE);
-        betLabel.setPadding(new Insets(0,15,10,25));
-        //Button betButton = new Button("Bet");
-        //betButton.setStyle("-fx-background-color: white");
-        //betButton.setTextFill(Color.BLACK);
-        //betButton.setPadding(new Insets(0,0,10,20));
+        betLabel.setPadding(new Insets(0,15,10,10));
         HBox userBets = new HBox();
         userBets.getChildren().addAll(betLabel, betMoney);
-        userBets.setPadding(new Insets(0,0,5,10));
+        userBets.setPadding(new Insets(5,0,5,10));
 
         // total money in the bank
         Label totalMoney = new Label("MONEY: ");
@@ -112,7 +109,7 @@ public class BlackjackApp extends Application implements Runnable{
         moneyLabel.setTextFill(Color.WHITE);
         HBox userMoney = new HBox();
         userMoney.getChildren().addAll(totalMoney,moneyLabel);
-        userMoney.setPadding(new Insets(0,0,5,475));
+        userMoney.setPadding(new Insets(5,0,0,250));
 
 
         Image play = new Image("/images/play.png");
@@ -135,9 +132,20 @@ public class BlackjackApp extends Application implements Runnable{
 
         rightVBox.getChildren().addAll(imagePlay, buttonsHBox);
 
+        exitButton.setStyle("-fx-background-color: black");
+        exitButton.setTextFill(Color.WHITE);
+        exitButton.setAlignment(Pos.TOP_RIGHT);
+        HBox exitButtonPane = new HBox();
+        exitButtonPane.getChildren().add(exitButton);
+        exitButtonPane.setPadding(new Insets(0,0,0,530));
+
+        exitButton.setOnAction((event) -> {
+            displayMessage();
+        });
+
         // ADD BOTH STACKS TO ROOT LAYOUT
 
-        rootLayout.getChildren().addAll(new StackPane(upBG, leftVBox), new StackPane(downBG, rightVBox), new StackPane(userBets, userMoney));
+        rootLayout.getChildren().addAll(new StackPane(userBets, userMoney, exitButtonPane), new StackPane(upBG, leftVBox), new StackPane(downBG, rightVBox));
         root.getChildren().addAll(background, rootLayout);
 
         // BIND PROPERTIES
@@ -151,6 +159,12 @@ public class BlackjackApp extends Application implements Runnable{
 
             @Override
             public void handle(MouseEvent event) {
+                // the bet is set to the total amount of money in the bank
+                if (betMoney.getText().equals("") == false) {
+                    if (Float.parseFloat(betMoney.getText()) > Float.parseFloat(moneyLabel.getText()))
+                        betMoney.setText(moneyLabel.getText());
+                }
+
                 betMoney.setDisable(true);
                 startNewGame();
                 //Updates user and dealer scores
@@ -246,15 +260,49 @@ public class BlackjackApp extends Application implements Runnable{
             connectServer(winner,0);
 
         betMoney.clear();
-        if (Float.parseFloat(moneyLabel.getText()) == 0.0f)
+
+        // displays a message if the user bank is 0
+        if (Float.parseFloat(moneyLabel.getText()) == 0.0f) {
             betMoney.setDisable(true);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "You've been kicked out of the game", ButtonType.OK);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.OK)
+                exit();
+        }
         else
             betMoney.setDisable(false);
     }
 
+    public void displayMessage()
+    {
+        // input for user details and put the amount of money in bets in a file
+        Alert betsMessage = new Alert(Alert.AlertType.INFORMATION, "Do you want to save your bets?", ButtonType.OK, ButtonType.NO);
+        betsMessage.showAndWait();
+        if (betsMessage.getResult() == ButtonType.NO)
+            Platform.exit();
+        else
+            primaryStage.close(); //TODO Implement code to save user scores
+
+    }
+
+    public void exit()
+    {
+        try {
+            connectToServer.close();
+            fromServer.close();
+            toServer.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        server.closeServer();
+        primaryStage.close();
+        StartScreen startScreen = new StartScreen();
+        startScreen.run();
+    }
+
     public void Game(){
-        Stage primaryStage = new Stage();
-        BetServer server = new BetServer();
         try {
             server.start(primaryStage);
         }

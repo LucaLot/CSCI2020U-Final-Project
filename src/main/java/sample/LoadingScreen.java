@@ -1,10 +1,3 @@
-/*
- * Name: Vithusan Jeevaratnam
- * Date: March 20th, 2020
- * FileName: LoadingScreen.java
- * Purpose: Used in order to create the loading effect to the game through a progress bar
- */
-
 package sample;
 
 import javafx.application.Application;
@@ -36,19 +29,12 @@ public class LoadingScreen extends Application implements Runnable {
     public void start(Stage stage) throws Exception {
     }
 
-    /*
-     * Parameters: N/A
-     * Return: N/A
-     * Purpose: Is a runnable method which enables us to begin a thread when needed
-     */
     @Override
     public void run() {
         Platform.runLater(new Runnable() {
             public void run() {
                 try {
                     startLoad();
-
-                    // timer used to trigger the start of the game after 5 seconds of loading
                     timer.schedule(new TimerTask(){
                         @Override
                         public void run() {
@@ -56,7 +42,7 @@ public class LoadingScreen extends Application implements Runnable {
                             Thread start = new Thread(starting);
                             start.run();
                         }
-                    },5000);
+                    },100);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -67,22 +53,16 @@ public class LoadingScreen extends Application implements Runnable {
     }
 
 
-    /*
-    * Parameters: N/A
-    * Return: N/A
-    * Purpose: Used to display the progress bar to create the effect of loading up
-     */
     public void startLoad(){
         Stage primaryStage = new Stage();
         TilePane r = new TilePane();
-        ProgressBar pb = new ProgressBar(); // progress bar
+        ProgressBar pb = new ProgressBar();
 
         pb.setMinHeight(50);
         pb.setMinWidth(250);
 
         r.getChildren().add(pb);
 
-        // event handler used to increase and decrease the loading effect on the progress bar itself
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {

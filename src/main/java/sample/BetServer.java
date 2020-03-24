@@ -5,6 +5,7 @@
 
 package sample;
 
+//import com.sun.security.ntlm.Server;
 import javafx.application.Platform;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -23,7 +24,11 @@ import java.net.Socket;
 public class BetServer extends Application
 {
   public Bet bets = new Bet();
+  private ServerSocket server;
+  private DataInputStream dataInput;
+  private DataOutputStream dataOutput;
   private TextArea output = new TextArea();
+  private Stage stage = new Stage();
 
   @Override
   public void start(Stage primaryStage) throws Exception
@@ -31,14 +36,14 @@ public class BetServer extends Application
     new Thread(()-> {
       try {
         // creates the server
-        ServerSocket server = new ServerSocket(8000);
+        server = new ServerSocket(8000);
         Platform.runLater(() -> output.appendText("Server started"));
         // connects to the client
         Socket socket = server.accept();
         Platform.runLater(() -> output.appendText("Connected to client"));
 
-        DataInputStream dataInput = new DataInputStream(socket.getInputStream());
-        DataOutputStream dataOutput = new DataOutputStream(socket.getOutputStream());
+        dataInput = new DataInputStream(socket.getInputStream());
+        dataOutput = new DataOutputStream(socket.getOutputStream());
 
         while (true)
         {
@@ -65,8 +70,22 @@ public class BetServer extends Application
     }).start();
 
     Scene scene = new Scene(new ScrollPane(output), 200, 200);
-    primaryStage.setScene(scene);
-    primaryStage.show();
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void closeServer()
+  {
+    try {
+      server.close();
+      dataInput.close();
+      dataOutput.close();
+    }
+    catch(IOException e){
+      e.printStackTrace();
+    }
+
+    stage.close();
   }
 
   public static void main(String[] args) {
