@@ -30,11 +30,13 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
+import javafx.scene.control.TextInputDialog;
 
 public class BlackjackApp extends Application implements Runnable{
 
     private Deck deck = new Deck();
     private BetServer server = new BetServer();
+    private Score score = new Score();
     private Socket connectToServer;
     private DataInputStream fromServer;
     private DataOutputStream toServer;
@@ -279,11 +281,18 @@ public class BlackjackApp extends Application implements Runnable{
         // input for user details and put the amount of money in bets in a file
         Alert betsMessage = new Alert(Alert.AlertType.INFORMATION, "Do you want to save your bets?", ButtonType.OK, ButtonType.NO);
         betsMessage.showAndWait();
-        if (betsMessage.getResult() == ButtonType.NO)
-            Platform.exit();
-        else
-            primaryStage.close(); //TODO Implement code to save user scores
-
+        if (betsMessage.getResult() == ButtonType.NO){
+          }else{
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Enter Name");
+            dialog.setHeaderText("Enter your name");
+            dialog.setContentText("Name:");
+            String name = dialog.showAndWait().toString();
+            name = name.substring(name.indexOf("[")+1,name.length()-1);
+            score.addAccount(name, moneyLabel.getText());
+          }
+          primaryStage.close();
+          exit();
     }
 
     public void exit()

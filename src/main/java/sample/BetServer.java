@@ -65,7 +65,7 @@ public class BetServer extends Application
         }
       }
       catch (IOException e) {
-        e.printStackTrace();
+        //e.printStackTrace();
       }
     }).start();
 

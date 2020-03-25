@@ -47,6 +47,8 @@ public class StartScreen extends Application implements Runnable {
         GridPane pane = new GridPane();
         Button start = new Button("START");
         Button rules = new Button("INSTRUCTIONS");
+        Button highScores = new Button("HIGH SCORES");
+        Button exit = new Button("EXIT");
 
         start.setShape(new Circle(3));
         start.setMaxSize(130,50);
@@ -62,6 +64,20 @@ public class StartScreen extends Application implements Runnable {
         rules.setTextFill(Color.WHITE);
         rules.setFont(new Font(14));
 
+        highScores.setShape(new Circle(1.5));
+        highScores.setMaxSize(130,50);
+        highScores.setMinSize(130,50);
+        highScores.setStyle("-fx-background-color: Black");
+        highScores.setTextFill(Color.WHITE);
+        highScores.setFont(new Font(14));
+
+        exit.setShape(new Circle(1.5));
+        exit.setMaxSize(130,50);
+        exit.setMinSize(130,50);
+        exit.setStyle("-fx-background-color: Black");
+        exit.setTextFill(Color.WHITE);
+        exit.setFont(new Font(14));
+
         start.setOnAction((event) -> {
             Runnable gameStart = new BlackjackApp();
             Thread game = new Thread(gameStart);
@@ -74,6 +90,17 @@ public class StartScreen extends Application implements Runnable {
             Thread rule = new Thread(ruleStart);
             primaryStage.close();
             rule.run();
+        });
+
+        highScores.setOnAction((event) -> {
+          Score score = new Score();
+          primaryStage.close();
+          score.checkBal();
+          System.exit(0);
+        });
+
+        exit.setOnAction((event) -> {
+          System.exit(0);
         });
 
         Image image = new Image("/images/blackjack.jpg");
@@ -94,6 +121,8 @@ public class StartScreen extends Application implements Runnable {
 
         pane.add(start,1,0);
         pane.add(rules,1,3);
+        pane.add(highScores,1,5);
+        pane.add(exit,1,7);
 
         Scene scene = new Scene(pane);
         primaryStage.setMaxHeight(750);
