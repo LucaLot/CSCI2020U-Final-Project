@@ -56,7 +56,7 @@ public class LoadingScreen extends Application implements Runnable {
                             Thread start = new Thread(starting);
                             start.run();
                         }
-                    },500);
+                    },2000);
 
                 } catch (Exception e) {
                     e.printStackTrace();

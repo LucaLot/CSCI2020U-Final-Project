@@ -1,3 +1,8 @@
+/*
+* Date: March 18, 2020
+* File Name: Rules.java
+* Purpose: Allows the display of rules to the user
+ */
 package sample;
 
 import javafx.application.Platform;
@@ -29,10 +34,12 @@ public class Rules extends Application implements Runnable{
     VBox Rules = new VBox();
     HBox backButt = new HBox();
 
-
+    /**
+     * Starts the code by setting everything required
+     */
     public void StartUp() throws FileNotFoundException {
         Stage primaryStage  = new Stage();
-
+        //Return button
         Button back = new Button("BACK");
         back.setShape(new Circle(3));
         back.setMaxSize(130,40);
@@ -40,10 +47,8 @@ public class Rules extends Application implements Runnable{
         back.setStyle("-fx-background-color: Black");
         back.setTextFill(Color.WHITE);
         back.setFont(new Font(14));
-
-        //backButt.setAlignment(Pos.BOTTOM_LEFT);
         backButt.getChildren().addAll(back);
-
+        //Sets up to allow the user to return to the start screen
         back.setOnAction((event) -> {
             Runnable screenStart = new StartScreen();
             Thread screen = new Thread(screenStart);
@@ -76,9 +81,12 @@ public class Rules extends Application implements Runnable{
         primaryStage.setMinWidth(600);
         primaryStage.show();
     }
-
-    // Function: access a txt file and displays the text in a vBox
+    /**
+     * Accesses a text file and displays the information pulled in a vBox
+     * @return A VBox containing the text information
+     */
     private VBox getRules() {
+        //Pulls information from file
         File file = new File("src/main/java/sample/Rules.txt");
         Scanner scanFile = null;
         try {
@@ -101,6 +109,9 @@ public class Rules extends Application implements Runnable{
     }
 
     @Override
+    /**
+     * Initial run, allows for the portion of code to run
+     */
     public void run() {
         Platform.runLater(new Runnable() {
             public void run() {
