@@ -21,11 +21,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.util.Scanner;
 import java.io.File;
+import javafx.geometry.Insets;
 
 public class Rules extends Application implements Runnable{
     GridPane root = new GridPane();
     HBox cards = new HBox();
     VBox Rules = new VBox();
+    HBox backButt = new HBox();
 
 
     public void StartUp() throws FileNotFoundException {
@@ -33,11 +35,14 @@ public class Rules extends Application implements Runnable{
 
         Button back = new Button("BACK");
         back.setShape(new Circle(3));
-        back.setMaxSize(130,50);
-        back.setMinSize(130,50);
+        back.setMaxSize(130,40);
+        back.setMinSize(130,40);
         back.setStyle("-fx-background-color: Black");
         back.setTextFill(Color.WHITE);
         back.setFont(new Font(14));
+
+        //backButt.setAlignment(Pos.BOTTOM_LEFT);
+        backButt.getChildren().addAll(back);
 
         back.setOnAction((event) -> {
             Runnable screenStart = new StartScreen();
@@ -48,7 +53,7 @@ public class Rules extends Application implements Runnable{
 
         // creates the background
         Image img = new Image("/images/table.png");
-        Rectangle upBG = new Rectangle(520, 640);
+        Rectangle upBG = new Rectangle(600, 640);
         upBG.setFill(new ImagePattern(img));
 
         // displays to playing cards in the top-right corner
@@ -59,12 +64,16 @@ public class Rules extends Application implements Runnable{
         cards.setAlignment(Pos.TOP_RIGHT);
         cards.getChildren().addAll(imageJack1, imageJack2);
 
+        root.getChildren().addAll(upBG, getRules(), cards,backButt);
 
-        root.getChildren().addAll(upBG, getRules(), cards, back);
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Rules");
+        primaryStage.setMaxHeight(640);
+        primaryStage.setMaxWidth(600);
+        primaryStage.setMinHeight(640);
+        primaryStage.setMinWidth(600);
         primaryStage.show();
     }
 

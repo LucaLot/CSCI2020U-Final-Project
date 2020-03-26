@@ -1,9 +1,16 @@
+/*
+* Date: March 20, 2020
+* File Name: StartScreen.java
+* Purpose: The screen is used to begin the blackjack game
+ */
+
 package sample;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -12,7 +19,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-
+import javafx.stage.Screen;
 
 import java.awt.*;
 import java.io.*;
@@ -22,7 +29,14 @@ import javafx.application.Platform;
 import javafx.scene.shape.Circle;
 
 
+
 public class StartScreen extends Application implements Runnable {
+
+    /*
+    * Parameters: N/a
+    * Return: N/a
+    * Purpose: Used to store the actions that need to start when a thread for this specific class is created
+     */
     @Override
     public void run() {
         Platform.runLater(new Runnable() {
@@ -42,9 +56,15 @@ public class StartScreen extends Application implements Runnable {
 
     }
 
+    /*
+    * Parameters:N/A
+    * Return: N/A
+    * Purpose: The necessary components created and used to create the intro screen
+     */
     public void startS() throws FileNotFoundException {
         Stage primaryStage = new Stage();
         GridPane pane = new GridPane();
+        // the start, instruction, high score and exit buttons on the front screen
         Button start = new Button("START");
         Button rules = new Button("INSTRUCTIONS");
         Button highScores = new Button("HIGH SCORES");
@@ -78,6 +98,7 @@ public class StartScreen extends Application implements Runnable {
         exit.setTextFill(Color.WHITE);
         exit.setFont(new Font(14));
 
+        // event handler for when the start button is selected triggering the beginning of the game itself
         start.setOnAction((event) -> {
             Runnable gameStart = new BlackjackApp();
             Thread game = new Thread(gameStart);
@@ -85,24 +106,25 @@ public class StartScreen extends Application implements Runnable {
             game.run();
         });
 
+        // event handler for when the instructions button is selected allowing the program to display the rules of the game
         rules.setOnAction((event) -> {
             Runnable ruleStart = new Rules();
             Thread rule = new Thread(ruleStart);
             primaryStage.close();
             rule.run();
         });
-
+        // event handler for when the high score button is selected allowing the program to display user high scores
         highScores.setOnAction((event) -> {
           Score score = new Score();
           primaryStage.close();
           score.checkBal();
-          System.exit(0);
         });
-
+            // event handler for when the instructions button is selected causing the program to exit
         exit.setOnAction((event) -> {
           System.exit(0);
         });
 
+        // used to import and use an image for the background of the introduction screen
         Image image = new Image("/images/blackjack.jpg");
         BackgroundImage backgroundImage = new BackgroundImage(image,BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,new BackgroundSize(450,600,
@@ -112,7 +134,6 @@ public class StartScreen extends Application implements Runnable {
         pane.setBackground(background);
 
 
-        //pane.setMaxSize(450,600);
         pane.setPadding(new Insets(10,10,10,10));
         pane.setHgap(5);
         pane.setVgap(5);
@@ -129,6 +150,11 @@ public class StartScreen extends Application implements Runnable {
         primaryStage.setMaxWidth(600);
         primaryStage.setMinHeight(750);
         primaryStage.setMinWidth(600);
+        //Code which is meant to properly set the location of the screen on a
+        //1920 by 1080 monitor, as in testing, this stage would not center properly
+        Rectangle2D ScreenBounds = Screen.getPrimary().getVisualBounds();
+        primaryStage.setX(ScreenBounds.getMaxX()/3);
+        primaryStage.setY((ScreenBounds.getMaxY()/3)-150);
         primaryStage.setScene(scene);
         primaryStage.show();
 

@@ -30,13 +30,13 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
-import javafx.scene.control.TextInputDialog;
+
 
 public class BlackjackApp extends Application implements Runnable{
 
     private Deck deck = new Deck();
-    private BetServer server = new BetServer();
     private Score score = new Score();
+    private BetServer server = new BetServer();
     private Socket connectToServer;
     private DataInputStream fromServer;
     private DataOutputStream toServer;
@@ -113,7 +113,6 @@ public class BlackjackApp extends Application implements Runnable{
         userMoney.getChildren().addAll(totalMoney,moneyLabel);
         userMoney.setPadding(new Insets(5,0,0,250));
 
-
         Image play = new Image("/images/play.png");
         ImageView imagePlay = new ImageView(play);
         imagePlay.setFitHeight(50);
@@ -162,6 +161,7 @@ public class BlackjackApp extends Application implements Runnable{
             @Override
             public void handle(MouseEvent event) {
                 // the bet is set to the total amount of money in the bank
+                exitButton.setDisable(true);
                 if (betMoney.getText().equals("") == false) {
                     if (Float.parseFloat(betMoney.getText()) > Float.parseFloat(moneyLabel.getText()))
                         betMoney.setText(moneyLabel.getText());
@@ -216,6 +216,9 @@ public class BlackjackApp extends Application implements Runnable{
         dealer.takeCard(deck.drawCard());
         player.takeCard(deck.drawCard());
         player.takeCard(deck.drawCard());
+
+        if (player.getValue() == 21 || dealer.getValue() == 21)
+            endGame();
     }
 
     public void connectServer(String w, int blackjack)
@@ -248,7 +251,6 @@ public class BlackjackApp extends Application implements Runnable{
         if (dealerValue == 21 || playerValue > 21 || dealerValue == playerValue
                 || (dealerValue < 21 && dealerValue > playerValue)) {
             winner = "DEALER";
-
         }
         else if (playerValue == 21 || dealerValue > 21 || playerValue > dealerValue) {
             winner = "PLAYER";
@@ -274,6 +276,8 @@ public class BlackjackApp extends Application implements Runnable{
         }
         else
             betMoney.setDisable(false);
+
+        exitButton.setDisable(false);
     }
 
     public void displayMessage()
@@ -281,8 +285,10 @@ public class BlackjackApp extends Application implements Runnable{
         // input for user details and put the amount of money in bets in a file
         Alert betsMessage = new Alert(Alert.AlertType.INFORMATION, "Do you want to save your bets?", ButtonType.OK, ButtonType.NO);
         betsMessage.showAndWait();
-        if (betsMessage.getResult() == ButtonType.NO){
-          }else{
+        if (betsMessage.getResult() == ButtonType.NO)
+            Platform.exit();
+        else
+        {
             TextInputDialog dialog = new TextInputDialog();
             dialog.setTitle("Enter Name");
             dialog.setHeaderText("Enter your name");
@@ -290,9 +296,9 @@ public class BlackjackApp extends Application implements Runnable{
             String name = dialog.showAndWait().toString();
             name = name.substring(name.indexOf("[")+1,name.length()-1);
             score.addAccount(name, moneyLabel.getText());
-          }
-          primaryStage.close();
-          exit();
+        }
+        primaryStage.close();
+        exit();
     }
 
     public void exit()
@@ -331,7 +337,6 @@ public class BlackjackApp extends Application implements Runnable{
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.setWidth(600);
         primaryStage.setHeight(800);
-        //primaryStage.setResizable(false);
         primaryStage.setTitle("BlackJack");
         primaryStage.show();
     }
@@ -346,7 +351,6 @@ public class BlackjackApp extends Application implements Runnable{
                     e.printStackTrace();
                 }
             }
-
         });
     }
 
@@ -357,5 +361,4 @@ public class BlackjackApp extends Application implements Runnable{
     public static void main(String[] args) {
         launch(args);
     }
-
 }

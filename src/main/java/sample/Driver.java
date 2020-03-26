@@ -1,4 +1,9 @@
-//Initial class to run program
+/*
+ * Date: March 20, 2020
+ * File Name: Driver.java
+ * Purpose: The class is used to trigger the whole beginning of the game
+ */
+
 package sample;
 
 

@@ -5,11 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.Node;
 
 
-/**
- * A typical player hand
- *
- * @author Almas
- */
 public class Hand {
 
     private ObservableList<Node> cards;
