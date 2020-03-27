@@ -7,7 +7,7 @@ A blackjack game, designed to use Gradle build structure and JavaFX
 
 Eric CB-Lamontage:
   - File I/O for Obtaining the rules
-  - Saving or retrieving the balance for a specific user
+  - File I/O for Saving or retrieving the balance for a specific user
 
 
 
