@@ -1,5 +1,5 @@
 # CSCI2020U-Final-Project
-Group Members: Luca Lotito :LucaLot:, Chanuka Goonetilleke :chanisawesome12345:, Eric CB-Lamontagne :Caspeer1:, Malaviya Nerumalan :malaviya19:
+Group Members: Luca Lotito :LucaLot:, Chanuka Goonetilleke :chanisawesome12345:, Eric CB-Lamontagne :Caspeer1:, Malaviya Nerumalan :malaviya19:, Vithusan
 
 A blackjack game, designed to use Gradle build structure and JavaFX
 
