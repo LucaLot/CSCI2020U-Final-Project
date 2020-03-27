@@ -8,6 +8,10 @@ A blackjack game, designed to use Gradle build structure and JavaFX
 Eric CB-Lamontage:
   - File I/O for Obtaining the rules
   - File I/O for Saving or retrieving the balance for a specific user
+  
+Chanuka Goonetilleke:
+  - GUI for Blackjack
+  - Helped Plan and Research Blackjack game
 
 
 
