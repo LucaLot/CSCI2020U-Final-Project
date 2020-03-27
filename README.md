@@ -1,6 +1,8 @@
 # CSCI2020U-Final-Project
 Group Members: Luca Lotito 100704158, Chanuka Goonetilleke, Eric CB-Lamontagne :Caspeer1:, Malaviya Nerumalan 100701778
 
+A blackjack game, designed to use Gradle build structure and JavaFX
+
 # Contributions:
 
 Eric CB-Lamontage:
@@ -8,4 +10,4 @@ Eric CB-Lamontage:
   - Saving or retrieving the balance for a specific user
 
 
-A blackjack game, designed to use Gradle build structure and JavaFX
+
