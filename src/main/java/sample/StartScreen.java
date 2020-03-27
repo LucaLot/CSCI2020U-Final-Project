@@ -150,16 +150,7 @@ public class StartScreen extends Application implements Runnable {
         primaryStage.setMaxWidth(600);
         primaryStage.setMinHeight(750);
         primaryStage.setMinWidth(600);
-        //Code which is meant to properly set the location of the screen on a
-        //1920 by 1080 monitor, as in testing, this stage would not center properly
-        Rectangle2D ScreenBounds = Screen.getPrimary().getVisualBounds();
-        primaryStage.setX(ScreenBounds.getMaxX()/3);
-        primaryStage.setY((ScreenBounds.getMaxY()/3)-150);
         primaryStage.setScene(scene);
         primaryStage.show();
-
-
-
-
     }
 }
