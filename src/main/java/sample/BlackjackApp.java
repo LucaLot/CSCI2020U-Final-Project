@@ -84,7 +84,7 @@ public class BlackjackApp extends Application implements Runnable{
         upBG.setFill(new ImagePattern(img));
         // menu for the betting buttons and other asthetics
         Rectangle downBG = new Rectangle(560, 170);
-        Image img2 = new Image("/images/menu.png");
+        Image img2 = new Image("/images/menu.jpg");
         downBG.setFill(new ImagePattern(img2));
 
         //Places Board objects on the top of the screen
