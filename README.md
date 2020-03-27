@@ -13,5 +13,20 @@ Chanuka Goonetilleke:
   - GUI for Blackjack
   - Helped Plan and Research Blackjack game
 
+Malaviya Nerumalan:
+  - Created Betting and server framework for handling user bets
+  - Added extra functionality to Blackjack for game end conditions
 
+Vithusan Jeevaratnam
+   - Created StartScreen Class, along with Driver and Loading screen
+   - Fixed up bugs with GUI display 
+ 
+Luca Lotito
+    - Managed Gradle and GitHub file structure
+    - Pieced code together, ensuring compatibility with all portions
+    
+NOTE
+Primary testing was done on a computer running Ubuntu 18.06 with a 1920 by 1080 monitor
+Secondary bug testing was done a computer running Windows 10 with a 1366 by 768 screen
+  
 
